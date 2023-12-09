@@ -2,7 +2,8 @@
 
 // Define defaults for each variable.
 
-$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+// $base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$base-font-family: "Beaufort for LOL";
 $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
@@ -10,9 +11,9 @@ $base-line-height: 1.5 !default;
 
 $spacing-unit:     30px !default;
 
-$text-color:       #111 !default;
-$background-color: #fdfdfd !default;
-$brand-color:      #2a7ae2 !default;
+$text-color:       #F0E6D2 !default;
+$background-color: #0A0A0C !default;
+$brand-color:      #C2A658 !default;
 
 $grey-color:       #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
@@ -21,8 +22,7 @@ $grey-color-dark:  darken($grey-color, 25%) !default;
 $table-text-align: left !default;
 
 // Width of the content area
-$content-width:    800px !default;
-
+$content-width:    930px !default;
 $on-palm:          600px !default;
 $on-laptop:        800px !default;
 
@@ -49,3 +49,171 @@ $on-laptop:        800px !default;
   "minima/layout",
   "minima/syntax-highlighting"
 ;
+
+//my code
+@mixin box-normal{
+  border: 1px solid #31271E;
+  background: #111318;
+}
+
+@mixin box-hover{
+  transition: border 0.3s;
+  border: 1px solid $brand-color;
+}
+
+.alt-text {
+  font-family: $base-font-family;
+  font-weight: 500 !important;
+  color: $brand-color;
+}
+
+.maincont {
+  margin-top: 100px;
+  margin-top: 100px;
+  display: grid;
+  row-gap: 15px;
+
+  @include media-query($on-laptop) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .layer1 {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+
+    @include media-query($on-palm) {
+      row-gap: 15px;
+      grid-template-columns: 1fr;
+    }
+
+    .left {
+      display: inline-grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 15px;
+      row-gap: 15px;
+      justify-content: center;
+
+      .socials {
+        display: grid;
+        grid-template-rows: auto auto auto;
+        row-gap: 15px;
+
+        & > a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 60px;
+          min-height: 60px;
+          @include box-normal();
+        }
+        & > a:hover {
+          transition: border 0.3s;
+          border: 1px solid $brand-color;
+        }
+      }
+      .profile-pic {
+        min-width: 214px;
+        min-height: 214px;
+        @include box-normal();
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .circle-outer {
+          width: 180px;
+          height: 180px;
+          border-radius: 100%;
+          border: 1px solid transparent;
+          background: linear-gradient(#111318, #111318) padding-box,
+                      linear-gradient(180deg, rgba(66,55,20,1) 0%, rgba(195,182,128,1) 50%, rgba(66,55,20,1) 100%) border-box;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .circle-inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 168px;
+            height: 168px;
+            border-radius: 100%;
+            border: 3px solid transparent;
+            background: linear-gradient(#111318, #111318) padding-box,
+                        linear-gradient(180deg, rgba(66,55,20,1) 0%, rgba(195,182,128,1) 50%, rgba(66,55,20,1) 100%) border-box;
+            & > img {
+              width: 160px;
+              height: 160px;
+              border-radius: 100%;
+            }
+
+          }
+
+        }
+
+      }
+    }
+    .profile {
+      .profile-desc {
+        min-height: 154px;
+        padding:30px;
+        @include box-normal();
+      }
+    }
+  }
+  .layer2 {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 15px;
+    row-gap: 15px;
+    justify-items: stretch;
+    grid-auto-flow: row;
+
+    @include media-query($on-laptop) {
+      grid-template-columns: auto;
+    }
+
+    .item-preview {
+      @include box-normal();
+
+      & > .desc {
+        @include box-normal();
+        padding: 30px;
+
+        & > .title {
+          color: #F0E6D2;
+          font-size: 18px;
+          text-transform: uppercase;
+          margin-bottom: 4px;
+        }
+
+        & > div {
+          & > .tag {
+            color: $brand-color;
+          }
+        }
+      }
+      
+    }
+  }
+  .layer3 {
+    & > a {
+      display: block;
+      padding:30px;
+
+      background: #111318;
+      border: 1px solid #C2A658;
+      border-image: linear-gradient(180deg, #C2A658, #6C531F) 1;
+
+      text-align:center;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    & > a:hover {
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+  }
+}
