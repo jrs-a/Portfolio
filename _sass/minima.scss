@@ -23,7 +23,7 @@ $table-text-align: left !default;
 
 // Width of the content area
 $content-width:    930px !default;
-$on-palm:          600px !default;
+$on-palm:          690px !default;
 $on-laptop:        800px !default;
 
 // Use media queries like this:
@@ -69,13 +69,16 @@ $on-laptop:        800px !default;
 
 .maincont {
   margin-top: 100px;
-  margin-top: 100px;
+  margin-bottom: 100px;
   display: grid;
   row-gap: 15px;
 
   @include media-query($on-laptop) {
-    padding-left: 50px;
-    padding-right: 50px;
+    margin: 100px 50px;
+  }
+
+  @include media-query($on-palm) {
+    margin:0 0 50vh 0;
   }
 
   .layer1 {
