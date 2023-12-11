@@ -15,7 +15,7 @@ $text-color:       #F0E6D2 !default;
 $background-color: #0A0A0C !default;
 $brand-color:      #C2A658 !default;
 
-$grey-color:       #828282 !default;
+$grey-color:       #A09B8C !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark:  darken($grey-color, 25%) !default;
 
@@ -58,7 +58,17 @@ $on-laptop:        800px !default;
 
 @mixin box-hover{
   transition: border 0.3s;
-  border: 1px solid $brand-color;
+  border-color: $brand-color;
+}
+
+@mixin box-invisible {
+  border-color: $background-color;
+  background: $background-color;
+}
+
+@mixin transition-anim {
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
 }
 
 .alt-text {
@@ -99,29 +109,25 @@ $on-laptop:        800px !default;
 
       .socials {
         display: grid;
-        grid-template-rows: auto auto auto;
-        row-gap: 15px;
+        gap: 15px;
 
         & > a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 60px;
+          display: grid;
+          place-items: center;
+          min-width: 60px;
           min-height: 60px;
           @include box-normal();
         }
         & > a:hover {
-          transition: border 0.3s;
-          border: 1px solid $brand-color;
+          @include box-hover();
         }
       }
       .profile-pic {
         min-width: 214px;
         min-height: 214px;
         @include box-normal();
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: grid;
+        place-items: center;
 
         .circle-outer {
           width: 180px;
@@ -130,14 +136,12 @@ $on-laptop:        800px !default;
           border: 1px solid transparent;
           background: linear-gradient(#111318, #111318) padding-box,
                       linear-gradient(180deg, rgba(66,55,20,1) 0%, rgba(195,182,128,1) 50%, rgba(66,55,20,1) 100%) border-box;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          display: grid;
+          place-items: center;
 
           .circle-inner {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: grid;
+            place-items: center;
             width: 168px;
             height: 168px;
             border-radius: 100%;
@@ -149,18 +153,17 @@ $on-laptop:        800px !default;
               height: 160px;
               border-radius: 100%;
             }
-
           }
-
         }
-
       }
     }
     .profile {
+      display: grid;
+      align-items: center;
+      @include box-normal();
+
       .profile-desc {
-        min-height: 154px;
         padding:30px;
-        @include box-normal();
       }
     }
   }
@@ -176,17 +179,28 @@ $on-laptop:        800px !default;
     }
 
     .item-preview {
-
+      
       & > .thumbnail {
         height: 144px;
-        @include box-normal()
+        @include box-normal();
+        overflow: hidden;
+        filter: grayscale(100%);
+      }
+
+      & > .thumbnail:hover {
+        @include transition-anim();
+        filter: grayscale(0);
       }
 
       & > .desc {
         @include box-normal();
         padding: 30px;
-        height: 110px;
+        height: 130px;
         text-align: center;
+
+        @include media-query($on-laptop) {
+          height: auto;
+        }
 
         & > .title {
           color: #F0E6D2;
@@ -206,6 +220,9 @@ $on-laptop:        800px !default;
         }
       }
     }
+    .item-preview:hover {
+      @include box-hover();
+    }
   }
   .layer3 {
     justify-self: center;
@@ -219,7 +236,7 @@ $on-laptop:        800px !default;
         padding: 12px 42px;
 
         background: linear-gradient(180deg, #14232A 0%, #0B374A 100%);  
-        border: 1px solid #0AC8B9;
+        border: 3px solid;
         border-image: linear-gradient(180deg, #0AC8B9, #005A82) 1;
 
         text-align:center;
@@ -228,13 +245,23 @@ $on-laptop:        800px !default;
       }
 
       & > a:hover {
-        transition: all 1.4s;
-        -webkit-transition: all 0.5s ease-out;
+        @include transition-anim();
         text-decoration: none;
         cursor: pointer;
         background: linear-gradient(180deg, #0B374A 0%, #14232A 100%);  
-        border: 1px solid #0AC8B9;
+        border: 3px solid #0AC8B9;
       }
+
+      & > a:active {
+        @include transition-anim();
+        text-decoration: none;
+        cursor: pointer;
+        border: 3px solid #111318;
+        background: #111318;
+      }
+    }
+    & > div:active {
+      background: #111318;
     }
   }
 }

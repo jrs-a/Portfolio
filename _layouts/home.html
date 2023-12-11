@@ -28,7 +28,9 @@ layout: default
     <div class="layer2">
       {% for project in site.featured %}
         <div class="item-preview">
-          <div class="thumbnail"></div>
+          <div class="thumbnail">
+            <img src="{{project.img}}">
+          </div>
           <div class="desc">
             <div class="title">{{project.title}}</div>
             <div>
