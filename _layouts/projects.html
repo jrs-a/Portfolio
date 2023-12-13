@@ -1,31 +1,52 @@
 ---
-layout: projects_default
+layout: default
 ---
 <div class="projects">
-   {%- if page.title -%}
-      <h1 class="page-heading">{{ page.title }}</h1>
-   {%- endif -%}
-
-   {{ content }}
-
-   {%- if site.posts.size > 0 -%}
-      <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
-      <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-         <span class="post-meta">{{ post.date | date: date_format }}</span>
-         <h3>
-            <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-            </a>
-         </h3>
-         {%- if site.show_excerpts -%}
-            {{ post.excerpt }}
-         {%- endif -%}
-      </li>
-      {%- endfor -%}
-      </ul>
-
-   {%- endif -%} 
+   <div class="page-header">
+      <a href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="main-grid-item-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><line x1="19" x2="5" y1="12" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>go back to homepage</a>
+      <h1>My Projects</h1>
+   </div>
+   <div class="filter-navbar"> 
+      <div class="button-group filter-button-group">
+            <a class="button active" data-filter="*">All</a>
+            <a class="button" data-filter=".mlds">machine learning/data science</a>
+            <a class="button" data-filter=".swd">software/web development</a>
+            <a class="button" data-filter=".design">design</a>
+      </div>
+   </div>
+   <div class="projects-list">
+      {% for post in site.posts %}
+         <div class="element-item {{ post.filter }}">
+            <div class="post-meta">{{ post.date | date: "%b %Y" }}</div>
+            <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+            <p>{{ post.excerpt }}</p>
+            <div>
+            {% for tag in post.tags %}
+               <span class="tag">{{tag}}</span>
+            {% endfor %}
+            </div>
+         </div>
+      {% endfor %}
+   </div>
 </div>
+
+<script
+   src="http://code.jquery.com/jquery-3.1.0.min.js"
+   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+   crossorigin="anonymous"></script>
+<script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.js"></script>
+<script>
+	// init Isotope
+	var $grid = $('.projects-list').isotope({
+
+	});
+	// filter items on button click
+	$('.filter-button-group').on( 'click', 'a', function() {
+      var filterValue = $(this).attr('data-filter');
+      $grid.isotope({ filter: filterValue });
+	});
+	$('.button-group a.button').on('click', function(){
+		$('.button-group a.button').removeClass('active');
+		$(this).addClass('active');
+	});
+</script>
