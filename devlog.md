@@ -17,3 +17,6 @@ This is a documentation of the steps I've done and some important notes while de
 - plan project using github projects
 - add projects.md to list of header_pages in config
 - start projects page
+- filter by category
+- filter ui
+- projects list ui

@@ -325,6 +325,38 @@ $on-laptop:        800px !default;
 }
 
 .projects-list {
-  z-index: -1;
-  margin-top:50px;
+  margin:50px 0 200px 0;
+
+  .element-item {
+    @include box-normal();
+    padding: 30px;
+    margin: 10px 30px;
+
+    .post-meta {
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      text-transform: uppercase;
+      font-weight: 600;
+      line-height: normal;
+      
+    }
+    p {
+      font-family: Spiegel;
+    }
+
+    .tag {
+      color: $brand-color;
+      margin: 4px;
+      font-family: Spiegel;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+  }
+
+  .element-item:hover {
+    @include box-hover();
+  }
 }

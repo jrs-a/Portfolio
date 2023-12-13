@@ -8,7 +8,7 @@ tags:
   - classification
   - decision tree
   - rapidminer
-img: assets/images/CS170_FA2.2.png
+img: assets/images/CS170_FA22.png
 permalink: /:year/:month/:title
 ---
 Classification is performed on the iris dataset using the method of decision tree using rapidminer. The model aims to categorize the different iris species.
