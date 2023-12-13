@@ -1,31 +1,48 @@
 ---
-layout: projects_default
+layout: default
 ---
 <div class="projects">
-   {%- if page.title -%}
-      <h1 class="page-heading">{{ page.title }}</h1>
-   {%- endif -%}
-
-   {{ content }}
-
-   {%- if site.posts.size > 0 -%}
-      <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
-      <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-         <span class="post-meta">{{ post.date | date: date_format }}</span>
-         <h3>
-            <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-            </a>
-         </h3>
-         {%- if site.show_excerpts -%}
-            {{ post.excerpt }}
-         {%- endif -%}
-      </li>
-      {%- endfor -%}
-      </ul>
-
-   {%- endif -%} 
+   <div class="navbg"></div>
+   <div class="filter-navbar"> 
+      <div class="button-group filter-button-group">
+            <a class="button active" data-filter="*">All</a>
+            <a class="button" data-filter=".mlds">machine learning/data science</a>
+            <a class="button" data-filter=".swd">software/web development</a>
+            <a class="button" data-filter=".design">design</a>
+      </div>
+   </div>
+   <div class="grid projects-list">
+      {% for post in site.posts %}
+         <div class="element-item {{ post.filter }}">
+            <span class="post-meta">{{ post.date | date: "%b %Y" }}</span>
+            <h2>
+               <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h2>
+            <p>
+               {{ post.excerpt }}
+            </p>
+         </div>
+      {% endfor %}
+   </div>
 </div>
+
+<script
+   src="http://code.jquery.com/jquery-3.1.0.min.js"
+   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+   crossorigin="anonymous"></script>
+<script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.js"></script>
+<script>
+	// init Isotope
+	var $grid = $('.grid').isotope({
+	  // options
+	});
+	// filter items on button click
+	$('.filter-button-group').on( 'click', 'a', function() {
+      var filterValue = $(this).attr('data-filter');
+      $grid.isotope({ filter: filterValue });
+	});
+	$('.button-group a.button').on('click', function(){
+		$('.button-group a.button').removeClass('active');
+		$(this).addClass('active');
+	});
+</script>

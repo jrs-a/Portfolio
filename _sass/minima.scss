@@ -265,3 +265,57 @@ $on-laptop:        800px !default;
     }
   }
 }
+
+.navbg {
+  top: 0;
+  position: fixed;
+  height: 63px;
+  background: $background-color;
+  width: 100%;
+}
+
+.filter-navbar {
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+
+  .button-group {
+    position: fixed;
+    display: flex;
+
+    @include media-query($on-palm) {
+      top:0;
+      background: $background-color;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    & > a {
+      cursor: pointer;
+      padding:20px;
+      text-decoration: none;
+      text-transform: capitalize;
+      border-bottom: 2px solid $background-color;
+      background: $background-color;
+
+      @include media-query($on-palm) {
+        padding: 10px;
+      }
+
+    }
+    & > a:hover, a.button.active {
+      @include transition-anim();
+      border-bottom: 2px solid $brand-color;
+      background: linear-gradient(180deg, $background-color 0%, #111318 100%);  
+    }
+  }
+}
+
+.projects-list {
+  z-index: -1;
+  margin-top:100px;
+
+  @include media-query($on-palm) {
+    margin-top: 80px;
+  }
+}

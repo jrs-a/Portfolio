@@ -8,5 +8,12 @@ This is a documentation of the steps I've done and some important notes while de
 - define collections on _config.yml file
 - finish responsive home layout :D
 
-later
-- update site description in config file
+12-12-23
+- try hover to increase size effect
+- cancel hover effect
+- add img src featured thumbnails
+
+12-13-23
+- plan project using github projects
+- add projects.md to list of header_pages in config
+- start projects page

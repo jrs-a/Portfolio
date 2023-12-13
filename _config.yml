@@ -13,6 +13,7 @@ collections_dir: collections
 
 header_pages:
   - about.md
+  - projects.md
 
 collections:
   featured:
