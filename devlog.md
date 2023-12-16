@@ -20,3 +20,12 @@ This is a documentation of the steps I've done and some important notes while de
 - filter by category
 - filter ui
 - projects list ui
+
+12-16-23
+- define font-face for custom fonts
+- move my css to main.scss
+- add "{{ base.url | prepend: site.url }}" before script links
+- localize jquery and isotope packages
+
+later
+- remove unnecessary htmls
