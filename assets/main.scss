@@ -35,6 +35,59 @@
    color: $brand-color;
 }
 
+.navbar.active {
+   @include media-query($on-laptop) {
+      height: 200px;
+   }
+}
+.navbar {
+   background: $background-color;
+
+   @include media-query($on-laptop) {
+      height: 58px;
+      overflow: hidden;
+      top:0;
+      position: sticky;
+      z-index: 999999999;
+   }
+
+   & > .menu {
+      display: none;
+      color: $grey-color;
+      text-align: end;
+      padding: 16px 32px;
+
+      @include media-query($on-laptop) {
+         display: block;
+      }
+   }
+   & > .links {
+      display: flex;
+      // justify-content: flex-start;
+      justify-content: center;
+      gap: 16px;
+
+      @include media-query($on-laptop) {
+         flex-flow: column;
+      }
+
+      & > a {
+         padding: 16px 32px;
+         text-transform: capitalize;
+         border-bottom: 2px solid $background-color;
+         @include media-query($on-laptop) {
+            text-align: center;
+         }
+      }
+
+      & > a:hover {
+         @include transition-anim();
+         text-decoration: none;
+         border-bottom: 2px solid $brand-color;
+         background: linear-gradient(180deg, $background-color 0%, #111318 100%);
+      }
+   }
+}
 .maincont {
    margin-top: 100px;
    margin-bottom: 100px;
@@ -146,46 +199,58 @@
       }
 
       .item-preview {
-         & > .thumbnail {
-            height: 144px;
-            @include box-normal();
-            overflow: hidden;
-            filter: grayscale(100%);
-         }
+         a {
+            & > .thumbnail {
+               height: 144px;
+               width: 100%;
+               @include box-normal();
+               overflow: hidden;
+               filter: grayscale(100%);
 
-         & > .desc {
-            @include box-normal();
-            padding: 30px;
-            height: 130px;
-            text-align: center;
-
-            @include media-query($on-laptop) {
-               height: auto;
+               img {
+                  height: 100%;
+                  width: 100%;
+                  object-fit: cover;
+               }
             }
 
-            & > .title {
-               color: #f0e6d2;
-               font-size: 18px;
-               text-transform: uppercase;
-               margin-bottom: 4px;
-            }
+            & > .desc {
+               @include box-normal();
+               padding: 30px;
+               height: 130px;
+               text-align: center;
 
-            & > div {
-               & > .tag {
-                  color: $brand-color;
-                  margin: 4px;
-                  font-family: Spiegel;
-                  font-size: 12px;
+               @include media-query($on-laptop) {
+                  height: auto;
+               }
+
+               & > .title {
+                  color: #f0e6d2;
+                  font-size: 18px;
                   text-transform: uppercase;
+                  margin-bottom: 4px;
+               }
+
+               & > div {
+                  & > .tag {
+                     color: $brand-color;
+                     margin: 4px;
+                     font-family: Spiegel;
+                     font-size: 12px;
+                     text-transform: uppercase;
+                  }
                }
             }
          }
       }
       .item-preview:hover {
          cursor: pointer;
-         & > .thumbnail {
-            @include transition-anim();
-            filter: grayscale(0);
+         a {
+            text-decoration: none;
+            & > .thumbnail {
+               @include transition-anim();
+               filter: grayscale(0);
+            }
          }
       }
    }
@@ -231,36 +296,16 @@
    }
 }
 
-.page-header {
-   h1 {
-      text-align: center;
-      font-weight: 600;
-      text-transform: uppercase;
-      font-size: 50px;
-      margin: 120px 0;
-   }
-   a {
-      display: flex;
-      gap: 8px;
-      text-transform: uppercase;
-      font-weight: 500;
-   }
-   a:hover {
-      text-decoration: none;
-   }
-}
-
 .filter-navbar {
-   z-index: 99999;
    display: grid;
    place-items: center;
-
-   position: sticky;
-   top: 0;
-   background: $background-color;
+   margin-top: 32px;
 
    .button-group {
       display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
 
       @include media-query($on-palm) {
          top: 0;
@@ -271,69 +316,135 @@
 
       & > a {
          cursor: pointer;
-         padding: 20px;
          text-decoration: none;
          text-transform: capitalize;
          font-weight: 500;
-         border-bottom: 2px solid $background-color;
-         background: $background-color;
 
-         @include media-query($on-palm) {
-            padding: 10px;
-         }
+         @include box-normal();
+         border-radius: 30px;
+         padding:6px 24px;
+         font-size: 14px;
+         text-align: center;
       }
       & > a:hover,
       a.button.active {
          @include transition-anim();
-         border-bottom: 2px solid $brand-color;
-         background: linear-gradient(180deg, $background-color 0%, #111318 100%);
+         background: $brand-color;
+         color: $background-color;
       }
    }
 }
 
-.projects-list {
+.list-container {
    margin: 30px 0 200px 0;
+   display: grid;
+   justify-items: center;
 
-   .element-item {
-      @include box-normal();
-      padding: 30px;
-      margin: 15px 30px;
+   .projects-list {
+      width: 750px;
 
-      .post-meta {
-         text-transform: uppercase;
-         margin-bottom: 16px;
-         font-weight: 600;
-         font-family: Spiegel;
+      @include media-query($on-laptop) {
+         width: 690px;
       }
 
-      .post-title {
-         & > a {
-            text-transform: uppercase;
-            font-family: Beaufort;
-            font-weight: 500;
-            font-size: 21px;
-            letter-spacing: 0.5px;
-            line-height: normal;
+      @include media-query($on-palm) {
+         width: 100%;
+      }
+
+      .element-item {
+         margin: 8px;
+         width: 356px;
+         @include box-normal();
+
+         @include media-query($on-laptop) {
+            width: 326px;
          }
-         & > a:hover {
-            text-decoration: none;
+
+         @include media-query($on-palm) {
+            width: 97%;
+         }
+
+         .thumbnail {
+            height: 144px;
+            width: auto;
+            overflow: hidden;
+            filter: grayscale(100);
+
+            img {
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+            }
+         }
+
+         .details {
+            padding: 30px;
+
+            .post-meta {
+               text-transform: uppercase;
+               margin-bottom: 16px;
+               font-weight: 600;
+               font-family: Spiegel;
+            }
+
+            .post-title {
+               & > a {
+                  text-transform: uppercase;
+                  font-family: Beaufort;
+                  font-weight: 500;
+                  font-size: 21px;
+                  letter-spacing: 0.5px;
+                  line-height: normal;
+                  color: $text-color;
+               }
+               & > a:hover {
+                  text-decoration: none;
+               }
+            }
+
+            & > p {
+               font-family: Spiegel;
+            }
+
+            .tag {
+               color: $brand-color;
+               margin: 4px 4px 4px 0;
+               font-family: Spiegel;
+               font-size: 12px;
+               text-transform: uppercase;
+            }
          }
       }
 
-      & > p {
-         font-family: Spiegel;
-      }
+      .element-item:hover {
+         @include box-hover();
+         @include transition-anim();
+         cursor: pointer;
 
-      .tag {
-         color: $brand-color;
-         margin: 4px 4px 4px 0;
-         font-family: Spiegel;
-         font-size: 12px;
-         text-transform: uppercase;
+         .thumbnail {
+            filter: grayscale(0);
+         }
       }
    }
+}
 
-   .element-item:hover {
-      @include box-hover();
+.post {
+   margin-top: 50px;
+
+   .post-title {
+      text-transform: capitalize;
+      margin-top: 32px;
+   }
+
+   .post-meta {
+      font-family: Spiegel;
+   }
+
+   .tag {
+      color: $brand-color;
+      margin: 4px 4px 4px 0;
+      font-family: Spiegel;
+      font-size: 12px;
+      text-transform: uppercase;
    }
 }

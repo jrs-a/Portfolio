@@ -12,7 +12,7 @@ github_username:  jrs-a
 collections_dir: collections
 
 header_pages:
-  - about.md
+  - index.md
   - projects.md
 
 collections:

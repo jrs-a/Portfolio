@@ -27,5 +27,16 @@ This is a documentation of the steps I've done and some important notes while de
 - add "{{ base.url | prepend: site.url }}" before script links
 - localize jquery and isotope packages
 
-later
+12-17-23
+- display img thumbnails #7
+- link featured to posts
+- change to fixed width per media query #7
+- add data analysis tag #7
+- archive other projects
 - remove unnecessary htmls
+- new header
+- new filter ui #7
+
+later
+- turn socials into svg file
+- move socials and featured to _data folder in a yml format

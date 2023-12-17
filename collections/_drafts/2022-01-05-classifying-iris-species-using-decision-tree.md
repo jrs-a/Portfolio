@@ -2,9 +2,8 @@
 layout: post
 title: "classifying iris species using decision tree"
 date: 2022-01-05 00:00:00 +0800
-filter: mlds
+filter: ml
 tags:
-  - machine learning
   - classification
   - decision tree
   - rapidminer

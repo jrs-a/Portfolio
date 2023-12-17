@@ -4,5 +4,5 @@ title: readery
 tags: 
    - android development
    - flutter
-url: 
+link: /2023/04/readery
 ---

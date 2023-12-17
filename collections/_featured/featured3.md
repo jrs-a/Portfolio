@@ -4,5 +4,5 @@ title: bonk it jonathan
 tags: 
    - game development
    - unity
-url: 
+link: /2022/01/bonk-it-jonathan
 ---

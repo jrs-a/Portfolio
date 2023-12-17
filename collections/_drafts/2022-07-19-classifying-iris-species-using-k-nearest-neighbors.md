@@ -2,9 +2,8 @@
 layout: post
 title: "classifying iris species using K-nearest neighbors"
 date: 2022-07-19 00:00:00 +0800
-filter: design
+filter: ml
 tags:
-  - machine learning
   - knn
   - sklearn
   - python

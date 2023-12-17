@@ -11,13 +11,9 @@ layout: default
             <a href="{{socials.link}}">{{socials.svg}}</a>
           {% endfor %}
         </div>
-        <div class="profile-pic">
-          <div class="circle-outer">
-            <div class="circle-inner">
-              <img src="assets/images/pfp.png">
-            </div>
-          </div>
-        </div>
+        <div class="profile-pic"><div class="circle-outer"><div class="circle-inner">
+          <img src="assets/images/pfp.png">
+        </div></div></div>
       </div>
       <div class="profile">
         <div class="profile-desc">
@@ -28,24 +24,22 @@ layout: default
     <div class="layer2">
       {% for project in site.featured %}
         <div class="item-preview">
-          <div class="thumbnail">
-            <img src="{{project.img}}">
-          </div>
-          <div class="desc">
-            <div class="title">{{project.title}}</div>
-            <div>
-              {% for tag in project.tags %}
-                <span class="tag">{{tag}}</span>
-              {% endfor %}
+          <a href="{{project.link}}">
+            <div class="thumbnail"><img src="{{project.img}}"></div>
+            <div class="desc">
+              <div class="title">{{project.title}}</div>
+              <div>
+                {% for tag in project.tags %}
+                  <span class="tag">{{tag}}</span>
+                {% endfor %}
+              </div>
             </div>
-          </div>
+          </a>
         </div>
       {% endfor %}
     </div>
     <div class="layer3">
-      <div>
-        <a href="/projects/">view projects</a>
-      </div>
+      <div><a href="/projects/">view projects</a></div>
     </div>
   </div>
 </div>
