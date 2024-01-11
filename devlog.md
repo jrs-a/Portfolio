@@ -36,7 +36,20 @@ This is a documentation of the steps I've done and some important notes while de
 - remove unnecessary htmls
 - new header
 - new filter ui #7
+- clean readme
+
+01-04-24
+- remove base on main html
+
+01-10-24
+- add pdf files
+
+01-11-24
+- install pdf embed plugin
+- preview on left side
 
 later
+- make the cards in project page clickable
+- make content
 - turn socials into svg file
 - move socials and featured to _data folder in a yml format

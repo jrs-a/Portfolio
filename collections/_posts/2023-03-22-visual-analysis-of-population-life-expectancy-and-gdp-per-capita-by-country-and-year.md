@@ -8,6 +8,7 @@ tags:
   - R
 img: assets/images/CS174_M2FA1.1_1.png
 permalink: /:year/:month/:title
+docu: "/assets/docs/CS174_M2FA1.1.pdf"
 ---
 We visualize the dataset with the following features: country, year, population, continent, lifeExp, and gdpPercap using R and present our analyses on the scatter plot of GDP and life expectancy, bar chart of average GDP per capita by continent, and box plot of life expectancy by continent.
 

@@ -1,45 +1,61 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: " en" }}">
+{%- include head.html -%}
 
-<div class="home">
-  <div class="maincont">
-    <div class="layer1">
-      <div class="left">
-        <div class="socials">
-          {% for socials in site.socials %}
-            <a href="{{socials.link}}">{{socials.svg}}</a>
-          {% endfor %}
-        </div>
-        <div class="profile-pic"><div class="circle-outer"><div class="circle-inner">
-          <img src="assets/images/pfp.png">
-        </div></div></div>
-      </div>
-      <div class="profile">
-        <div class="profile-desc">
-          <span>My name is <span class="alt-text">Jamaica Alberto</span> and I am currently a graduating student of Bachelor of Science in Computer Science with Specialization in Data Science at Mapua University. I am passionate about keeping things organized, efficient, and pretty  — my foundation on what drove me to aspire to be a data scientist.<br><br>I love the arts, literature, music, urban planning, and gaming ♡</span>
-        </div>
-      </div>
-    </div>
-    <div class="layer2">
-      {% for project in site.featured %}
-        <div class="item-preview">
-          <a href="{{project.link}}">
-            <div class="thumbnail"><img src="{{project.img}}"></div>
-            <div class="desc">
-              <div class="title">{{project.title}}</div>
-              <div>
-                {% for tag in project.tags %}
-                  <span class="tag">{{tag}}</span>
+<body>
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <div class="home">
+        <div class="maincont">
+          <div class="layer1">
+            <div class="left">
+              <div class="socials">
+                {% for socials in site.socials %}
+                <a href="{{socials.link}}">{{socials.svg}}</a>
                 {% endfor %}
               </div>
+              <div class="profile-pic">
+                <div class="circle-outer">
+                  <div class="circle-inner">
+                    <img src="assets/images/pfp.png">
+                  </div>
+                </div>
+              </div>
             </div>
-          </a>
+            <div class="profile">
+              <div class="profile-desc">
+                <span>My name is <span class="alt-text">Jamaica Alberto</span> and I am currently a graduating student
+                  of Bachelor of Science in Computer Science with Specialization in Data Science at Mapua University. I
+                  am passionate about keeping things organized, efficient, and pretty — my foundation on what drove me
+                  to aspire to be a data scientist.<br><br>I love the arts, literature, music, urban planning, and
+                  gaming ♡</span>
+              </div>
+            </div>
+          </div>
+          <div class="layer2">
+            {% for project in site.featured %}
+            <div class="item-preview">
+              <a href="{{project.link}}">
+                <div class="thumbnail"><img src="{{project.img}}"></div>
+                <div class="desc">
+                  <div class="title">{{project.title}}</div>
+                  <div>
+                    {% for tag in project.tags %}
+                    <span class="tag">{{tag}}</span>
+                    {% endfor %}
+                  </div>
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="layer3">
+            <div><a href="/projects/">view projects</a></div>
+          </div>
         </div>
-      {% endfor %}
+      </div>
     </div>
-    <div class="layer3">
-      <div><a href="/projects/">view projects</a></div>
-    </div>
-  </div>
-</div>
+  </main>
+</body>
+
+</html>

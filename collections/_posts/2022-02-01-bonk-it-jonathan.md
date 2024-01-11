@@ -17,3 +17,5 @@ How to play the game
 1. [Download the game here](https://github.com/jrs-a/Bonk-it-Jonathan/releases/download/v0.1-beta/Bonk.it.Jonathan.Windows.x86.zip)
 2. Extract the zip file
 3. Run the program :D
+
+![bonk](/assets/images/bonk.png)

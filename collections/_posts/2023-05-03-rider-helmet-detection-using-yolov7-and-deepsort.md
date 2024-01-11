@@ -10,5 +10,6 @@ tags:
   - python
 img: assets/images/CS174_M3SA.png
 permalink: /:year/:month/:title
+docu: "/assets/docs/CS174_M3SA.pdf"
 ---
 This project implements rider helmet detection using YOLOv7 (an object detection model) and DeepSORT (an object tracking model) on a cctv recording. This is a group effort where each group were assigned to train combination of different hyperparameter setting and video time range and manually label images from the set of  video frames using roboflow.

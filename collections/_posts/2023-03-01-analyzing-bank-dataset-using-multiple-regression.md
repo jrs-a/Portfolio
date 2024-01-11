@@ -8,5 +8,6 @@ tags:
   - R
 img: assets/images/CS174_M1ChapterProj.png
 permalink: /:year/:month/:title
+docu: "/assets/docs/CS174_M1ChapterProj.pdf"
 ---
 In this project we perform exploratory data analysis and check if the variables meet the assumptions of multiple regression. We then use the coefficients to form the equation for our regression model; and finally perform prediction on the model to determine how it performs.

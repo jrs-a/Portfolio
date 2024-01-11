@@ -12,5 +12,6 @@ tags:
   - python
 img: assets/images/CS171_M2SA.png
 permalink: /:year/:month/:title
+docu: "/assets/docs/CS171_M2SA.pdf"
 ---
 This is an audio processing task done with sklearn python library where we classify the emotion of the audios using decision tree with its gini index attribute criterion.

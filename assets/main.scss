@@ -61,6 +61,11 @@
          display: block;
       }
    }
+
+   & > .menu:hover {
+      cursor: pointer;
+   }
+
    & > .links {
       display: flex;
       // justify-content: flex-start;
