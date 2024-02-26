@@ -15,3 +15,5 @@ permalink: /:year/:month/:title
 docu: "/assets/docs/CS171_M2SA.pdf"
 ---
 This is an audio processing task done with sklearn python library where we classify the emotion of the audios using decision tree with its gini index attribute criterion.
+
+[link to google colab](https://colab.research.google.com/drive/1XWuLXQzcKqgFVsYdktQtULTVl5t6qzzd?usp=sharing)

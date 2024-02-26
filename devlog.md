@@ -48,6 +48,14 @@ This is a documentation of the steps I've done and some important notes while de
 - install pdf embed plugin
 - preview on left side
 
+01-12-24
+- attempted to do the two-column layout for the article page, it doesn't look good, scratch this idea and rewrite the pdf files to md instead
+
+02-26-24
+- move minor projects to drafts
+- change photo
+- add content and links
+
 later
 - make the cards in project page clickable
 - make content

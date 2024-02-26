@@ -10,4 +10,6 @@ img: assets/images/CS170_Ass3.1.png
 permalink: /:year/:month/:title
 docu: "/assets/docs/CS170_Ass3.1.pdf"
 ---
-This project visualizes the Philippine Covid-19 data in a dashboard using Microsoft Power BI and Tableau.
+This project visualizes the a publicly available Philippine Covid-19 dataset in a dashboard using Microsoft Power BI.
+
+![cs17031](/assets/images/CS170_Ass3.1.png)

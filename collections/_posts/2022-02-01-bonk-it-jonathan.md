@@ -10,7 +10,7 @@ tags:
 img: assets/images/bonk.png
 permalink: /:year/:month/:title
 ---
-This is a 2d top-down game where you are tasked to solve the puzzles per level given a limited amount of moves. This was made using unity game engine with assets from [analogStudios](https://analogstudios.itch.io/).
+This is a 2d top-down game for the windows platform where you are tasked to solve the puzzles per level given a limited amount of moves. This was made using unity game engine with assets from [analogStudios](https://analogstudios.itch.io/).
 
 
 How to play the game

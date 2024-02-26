@@ -5,7 +5,7 @@
 title: jrs-a
 email: albertojamaicarose@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  portfolio
+  Explore my projects in machine learning and software/app development.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jrs-a.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  jrs-a
