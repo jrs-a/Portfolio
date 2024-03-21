@@ -56,6 +56,10 @@ This is a documentation of the steps I've done and some important notes while de
 - change photo
 - add content and links
 
+03-21-24
+- add more projects (notetify, basic website)
+- update thesis and audio emotion classifier description
+
 later
 - make the cards in project page clickable
 - make content
